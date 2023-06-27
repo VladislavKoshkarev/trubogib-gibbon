@@ -14,7 +14,7 @@ orderButton.addEventListener('click', () => {
 })
 
 document.addEventListener('DOMContentLoaded', function() {
-  const enddate = new Date(2024, 1, 1);
+  const endDate = new Date(2024, 1, 1);
   let timerId = null;
 
   const days = document.querySelector('.timer__days');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const seconds = document.querySelector('.timer__seconds');
 
   function countdownTimer() {
-    const diff = enddate - new Date();
+    const diff = endDate - new Date();
     if (diff <= 0) {
       clearInterval(timerId);
     }
@@ -113,9 +113,6 @@ orderForm.addEventListener('click', addOptions);
 
 function selectKit(event) {
   const kit = event.target.value
-  // if (kit === 'gibbon_premium') {
-  // }
-  console.log(kitsObj[kit].options)
   checkOptions(kitsObj[kit].options)
   discount.textContent = kitsObj[kit].discount;
   price.textContent = kitsObj[kit].price;
@@ -154,7 +151,6 @@ function hideOption(option) {
 }
 
 function checkOptions(arr) {
-  console.log(arr.length)
   if (arr.length !== 0) {
     arr.forEach(el => {
       checkboxes.forEach(box => {
