@@ -1,4 +1,4 @@
-import declinateNum from "./scripts/declinateNum.js";
+import declinateNum from "./declinateNum.js";
 const orderPopup = document.querySelector('.form-popup');
 const orderButton = document.querySelector('.order-button');
 
