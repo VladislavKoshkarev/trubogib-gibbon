@@ -71,7 +71,7 @@ const kitsObj = {
     discount: '55',
     price: '15650',
     pic: './assets/gibbon-pro-new.png',
-    options: ['centroboy-gift', 'adapter', 'roliki', 'uglogib', 'kolca'],
+    options: ['centroboy_gift', 'adapter', 'roliki', 'uglogib', 'kolca'],
   },
 }
 
@@ -156,16 +156,14 @@ function hideOption(option) {
 function checkOptions(arr) {
   console.log(arr.length)
   if (arr.length !== 0) {
-    // document.querySelector('.item-centroboy').classList.add('hidden')
-    // document.querySelector('.item-centroboy_gift').classList.remove('hidden')
     arr.forEach(el => {
       checkboxes.forEach(box => {
-        // if (box.getAttribute('data-dop') === 'centroboy') {
-        //   box.parentElement.classList.add('hidden')
-        // }
-        // if (box.getAttribute('data-dop') === 'centroboy-gift') {
-        //   box.parentElement.classList.remove('hidden')
-        // }
+        if (box.getAttribute('data-dop') === 'centroboy') {
+          box.parentElement.classList.add('hidden')
+        }
+        if (box.getAttribute('data-dop') === 'centroboy_gift') {
+          box.parentElement.classList.remove('hidden')
+        }
         if (box.getAttribute('data-dop') === el) {
           box.checked = true
           box.setAttribute('added', 'added')
@@ -176,8 +174,14 @@ function checkOptions(arr) {
   }
   else {
     checkboxes.forEach(box => {
-          box.checked = false
-        })
+      if (box.getAttribute('data-dop') === 'centroboy') {
+        box.parentElement.classList.remove('hidden')
+      }
+      if (box.getAttribute('data-dop') === 'centroboy_gift') {
+        box.parentElement.classList.add('hidden')
+      }
+      box.checked = false
+      })
     popupOptions.forEach(el => el.classList.add('hidden'))
   }
 }
